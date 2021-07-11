@@ -1,13 +1,13 @@
 import random
 
 # счётчик поверженных героем чудовищ
-monster_counter = 0
+monster_counter = None
 
 # текущее состояние здоровье героя
-hp = 55
+hp = None
 
 # текущая сила атаки героя
-attack = 20
+attack = None
 
 
 def game() -> None:
@@ -20,6 +20,10 @@ def game() -> None:
     global hp
     global attack
     global monster_counter
+
+    monster_counter = 0
+    hp = 55
+    attack = 20
 
     print("Игра началась!")
 
@@ -172,7 +176,6 @@ def game() -> None:
 
             # выводим контрольную строку
             print("ПОРАЖЕНИЕ")
-            quit()
 
         elif monster_counter == 10:
             is_win = True
@@ -181,7 +184,8 @@ def game() -> None:
 
             # выводим контрольную строку
             print("ПОБЕДА")
-            quit()
+
+    quit()
 
 
 if __name__ == "__main__":
