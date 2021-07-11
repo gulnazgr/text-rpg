@@ -30,14 +30,8 @@ def game() -> None:
     # события имеющиеся в игре
     events = ["monster", "sword", "apple"]
 
-    # если is_win == True -- значит мы выйграли
-    is_win = False
-
-    # если is_lose == True -- значит мы проиграли
-    is_lose = False
-
     # цикл событий/ходов игры
-    while not is_win and not is_lose:
+    while monster_counter < 10 and hp > 0:
         # выводим информацию о рыцаре
         print("Состояние здоровья рыцаря =", str(hp))
         print("Сила атаки рыцаря =", str(attack))
@@ -169,8 +163,6 @@ def game() -> None:
 
         # проверяем состояние рыцаря
         if hp <= 0:
-            is_lose = True
-
             # значит мы проиграли и завершаем игру
             print("Конец игры! Вы проиграли игру.")
 
@@ -178,8 +170,6 @@ def game() -> None:
             print("ПОРАЖЕНИЕ")
 
         elif monster_counter == 10:
-            is_win = True
-
             print("Вы победили", str(monster_counter), "чудовищ!")
 
             # выводим контрольную строку
