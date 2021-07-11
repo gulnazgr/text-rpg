@@ -22,8 +22,8 @@ def game() -> None:
     global monster_counter
 
     monster_counter = 0
-    hp = 55
-    attack = 20
+    hp = random.randint(25, 55)
+    attack = random.randint(10, 20)
 
     print("Игра началась!")
 
