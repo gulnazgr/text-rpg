@@ -1,13 +1,13 @@
 import random
 
 # счётчик поверженных героем чудовищ
-monster_counter = None
+monster_counter = 0
 
 # текущее состояние здоровье героя
-hp = None
+hp = 0
 
 # текущая сила атаки героя
-attack = None
+attack = 0
 
 
 def game() -> None:
