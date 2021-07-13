@@ -4,10 +4,10 @@ import random
 monster_counter = 0
 
 # текущее состояние здоровье героя
-hp = 55
+hp = 0
 
 # текущая сила атаки героя
-attack = 20
+attack = 0
 
 
 def game() -> None:
@@ -21,24 +21,23 @@ def game() -> None:
     global attack
     global monster_counter
 
+    monster_counter = 0
+    hp = random.randint(25, 55)
+    attack = random.randint(10, 20)
+
     print("Игра началась!")
 
     # события имеющиеся в игре
     events = ["monster", "sword", "apple"]
 
-    # если is_win == True -- значит мы выйграли
-    is_win = False
-
-    # если is_lose == True -- значит мы проиграли
-    is_lose = False
-
     # цикл событий/ходов игры
-    while not is_win and not is_lose:
+    while monster_counter < 10 and hp > 0:
         # выводим информацию о рыцаре
         print("Состояние здоровья рыцаря =", str(hp))
         print("Сила атаки рыцаря =", str(attack))
 
         # генерируем случайное число в диапозоне от [0 до 2] включительно
+        # для получения рандомного события
         index = random.randint(0, 2)
 
         # получаем название события
@@ -165,23 +164,19 @@ def game() -> None:
 
         # проверяем состояние рыцаря
         if hp <= 0:
-            is_lose = True
-
             # значит мы проиграли и завершаем игру
             print("Конец игры! Вы проиграли игру.")
 
             # выводим контрольную строку
             print("ПОРАЖЕНИЕ")
-            quit()
 
         elif monster_counter == 10:
-            is_win = True
-
             print("Вы победили", str(monster_counter), "чудовищ!")
 
             # выводим контрольную строку
             print("ПОБЕДА")
-            quit()
+
+    quit()
 
 
 if __name__ == "__main__":
